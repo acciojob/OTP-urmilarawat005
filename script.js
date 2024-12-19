@@ -1,6 +1,5 @@
-//your JS code here. If required.
 // Get all OTP input elements
-const otpInputs = document.querySelectorAll('.code');
+const otpInputs = Array.from(document.querySelectorAll('.code'));
 
 // Focus on the next input after typing a character
 otpInputs.forEach((input, index) => {
@@ -13,8 +12,8 @@ otpInputs.forEach((input, index) => {
     }
   });
 
-  // Handle backspace
-  input.addEventListener('keydown', (e) => {
+  // Handle backspace on keyup event
+  input.addEventListener('keyup', (e) => {
     if (e.key === 'Backspace' && !input.value) {
       // Focus previous input if current input is empty
       if (index > 0) {
